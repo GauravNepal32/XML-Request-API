@@ -17,5 +17,11 @@ app.get('/about', (req, res) => {
     res.send('This is my about route..... ')
 })
 
+app.get('/ask', (req, res) => {
+    setTimeout(() => {
+        return res.status(200).json({ bidRate: 0.0001, url: 'https://adsaro.com' })
+    }, 2000)
+})
+
 // Export the Express API
 module.exports = app
