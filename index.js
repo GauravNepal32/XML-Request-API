@@ -20,7 +20,7 @@ app.get('/about', (req, res) => {
 app.get('/ask', (req, res) => {
     setTimeout(() => {
         return res.status(200).json({ bidRate: 0.0001, url: 'https://adsaro.com' })
-    }, 2000)
+    }, 1000)
 })
 
 // Export the Express API
