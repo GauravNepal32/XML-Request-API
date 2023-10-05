@@ -19,8 +19,14 @@ app.get('/about', (req, res) => {
 
 app.get('/ask', (req, res) => {
     setTimeout(() => {
-        return res.status(200).json({ bidRate: 0.0001, url: 'https://adsaro.com' })
+        return res.status(200).json({ bidRate: 0.0001, url: 'https://youtube.com' })
     }, 1000)
+})
+
+app.get('/feed', (req, res) => {
+    setTimeout(() => {
+        return res.status(200).json({ bidRate: 0.0001, url: 'https://google.com' })
+    }, 2000)
 })
 
 // Export the Express API
