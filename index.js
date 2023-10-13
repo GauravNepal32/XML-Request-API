@@ -4,15 +4,10 @@ const express = require('express')
 
 const app = express()
 const requestIp = require('request-ip');
-// app.use(requestIp.mw())
-// app.use(function (req, res) {
-//     const ip = req.clientIp;
-//     res.end(ip);
-// });
 const PORT = 4000
 const ipMiddleware = function (req, res, next) {
     const clientIp = requestIp.getClientIp(req);
-    req.ip = clientIp
+    req['ip-address'] = clientIp
     next();
 };
 app.listen(PORT, () => {
@@ -34,7 +29,7 @@ app.get('/ask', (req, res) => {
 })
 
 app.get('/ip', ipMiddleware, (req, res) => {
-    res.status(200).json({ ip: req.ip })
+    res.status(200).json({ ip: req['ip-address'] })
 })
 app.get('/feed', (req, res) => {
     setTimeout(() => {
